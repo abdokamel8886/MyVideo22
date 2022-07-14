@@ -22,6 +22,7 @@ import com.example.myvideo.R;
 import com.example.myvideo.adapters.UsersRecyclerAdapter;
 import com.example.myvideo.databinding.FragmentMyFriendsBinding;
 import com.example.myvideo.models.RegModel;
+import com.example.myvideo.ui.profile.Chat.BaseChatFragment;
 import com.example.myvideo.utils.SharedModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -79,6 +80,16 @@ public class MyFriendsFragment extends Fragment {
             public void onChanged(ArrayList<RegModel> regModels) {
                 adapter.setList(regModels);
                 binding.recycler.setAdapter(adapter);
+
+                adapter.setOnItemClick(new UsersRecyclerAdapter.OnItemClick() {
+                    @Override
+                    public void OnClick(RegModel user) {
+                        SharedModel.setSelected_user(user);
+                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new FriendProfileFragment() ,"fp")
+                                .addToBackStack("fp").commit();
+                    }
+                });
+
             }
         });
     }

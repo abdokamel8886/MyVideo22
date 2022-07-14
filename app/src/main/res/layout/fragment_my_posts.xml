@@ -40,7 +40,7 @@
         app:civ_border_color="#E9F0FE"
         app:civ_border_width="2dp" />
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toEndOf="@id/img"
@@ -50,9 +50,8 @@
         android:id="@+id/card"
         android:layout_marginStart="20sp"
         android:layout_marginEnd="50sp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1sp"
-        app:cardCornerRadius="50sp">
+        android:background="@drawable/edittext4"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -69,7 +68,7 @@
                 android:text="What's on your mind?"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
