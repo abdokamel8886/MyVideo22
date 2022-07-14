@@ -19,6 +19,8 @@ import com.example.myvideo.ui.auth.login.LoginFragment;
 import com.example.myvideo.ui.profile.Account.FacultyInfo.FacultyInfoFragment;
 import com.example.myvideo.ui.profile.Account.myprofile.MyProfileFragment;
 import com.example.myvideo.ui.profile.Account.securitysettings.SecurityFragment;
+import com.example.myvideo.ui.profile.MyFriends.MyFriendsFragment;
+import com.example.myvideo.ui.profile.MyPosts.MyPostsFragment;
 import com.example.myvideo.utils.SharedModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,6 +52,8 @@ public class ProfileFragment extends Fragment {
 
         binding.username.setText(SharedModel.getUsername());
         binding.mail.setText(SharedModel.getMail());
+        binding.phoneText.setText(SharedModel.getPhone());
+        binding.dateText.setText(SharedModel.getBirth());
 
         Glide.with(getContext())
                 .load(SharedModel.getImage())
@@ -66,15 +70,8 @@ public class ProfileFragment extends Fragment {
         binding = null;
     }
     private void onClicks(){
-        binding.profileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new MyProfileFragment(),"mp")
-                        .addToBackStack("mp").commit();
-            }
-        });
 
-        binding.securityBtn.setOnClickListener(new View.OnClickListener() {
+        binding.settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new SecurityFragment(),"sc")
@@ -82,23 +79,22 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        binding.universityBtn.setOnClickListener(new View.OnClickListener() {
+        binding.postBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new FacultyInfoFragment(),"us")
-                        .addToBackStack("us").commit();
-
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new MyPostsFragment(),"p")
+                        .addToBackStack("p").commit();
             }
-
         });
 
-        binding.aboutusbtn.setOnClickListener(new View.OnClickListener() {
+        binding.friendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new MyFriendsFragment(),"f")
+                        .addToBackStack("f").commit();
             }
         });
+
 
 
         binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
