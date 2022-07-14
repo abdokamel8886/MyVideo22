@@ -31,7 +31,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:src="@drawable/courses"
                 android:layout_margin="10sp"
-                app:civ_border_color="@color/color1"
+                app:civ_border_color="#E9F0FE"
                 app:civ_border_width="2dp" />
 
             <TextView

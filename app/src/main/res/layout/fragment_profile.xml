@@ -49,8 +49,8 @@
             android:id="@+id/img"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_centerInParent="true"
 
+            android:layout_centerInParent="true"
             app:civ_border_color="#E9F0FE"
             app:civ_border_width="5dp" />
 
@@ -232,10 +232,53 @@
                 android:backgroundTint="@color/white"
                 android:textSize="12sp"
                 android:drawableEnd="@drawable/out"
-                android:layout_marginTop="100sp"
+                android:layout_marginTop="30sp"
                 android:textStyle="bold"
                 android:textColor="#225CF2"
                 />
+
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logout_btn"
+        android:layout_marginTop="30sp"
+        android:layout_marginStart="50sp"
+        android:textStyle="bold"
+        android:textColor="#555555"
+        android:text="Help and support"
+        android:textSize="10sp"
+
+        />
+
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/txt2"
+        app:layout_constraintTop_toBottomOf="@id/txt2"
+        android:layout_marginTop="10sp"
+        android:textStyle="bold"
+        android:textColor="#225CF2"
+        android:text="Contact Us"
+        android:textSize="12sp"
+
+        />
+    <TextView
+        android:id="@+id/terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/txt2"
+        app:layout_constraintTop_toBottomOf="@id/contact"
+        android:layout_marginTop="10sp"
+        android:textStyle="bold"
+        android:textColor="#225CF2"
+        android:text="Terms of Use"
+        android:textSize="12sp"
+
+        />
 
 
 
