@@ -76,9 +76,17 @@ public class MyHomeCoursesFragment extends Fragment {
                 }
 
                 adapter.setList(list1);
-                binding.recycler1.setAdapter(adapter);
-                binding.txt1.setVisibility(View.VISIBLE);
-                binding.txt3.setVisibility(View.VISIBLE);
+
+                if (list1.size() > 0){
+                    binding.recycler1.setAdapter(adapter);
+                    binding.txt1.setVisibility(View.VISIBLE);
+                    binding.txt3.setVisibility(View.VISIBLE);
+                }
+                else {
+                    binding.recycler1.setVisibility(View.GONE);
+                }
+
+
                 getCourses2();
             }
         });
@@ -103,10 +111,16 @@ public class MyHomeCoursesFragment extends Fragment {
 
 
 
-                adapter2.setList(list2);
-                binding.recycler2.setAdapter(adapter2);
-                binding.txt2.setVisibility(View.VISIBLE);
-                binding.txt4.setVisibility(View.VISIBLE);
+
+                if (list2.size()>0){
+                    adapter2.setList(list2);
+                    binding.recycler2.setAdapter(adapter2);
+                    binding.txt2.setVisibility(View.VISIBLE);
+                    binding.txt4.setVisibility(View.VISIBLE);
+                }
+                else {
+                    binding.recycler2.setVisibility(View.GONE);
+                }
                 onClicks();
             }
         });
