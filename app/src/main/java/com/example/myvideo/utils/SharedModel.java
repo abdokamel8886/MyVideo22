@@ -18,6 +18,7 @@ import com.example.myvideo.models.CourseModel;
 import com.example.myvideo.models.ModelAuthCache;
 import com.example.myvideo.models.MyUniversityModel;
 import com.example.myvideo.models.PostModel;
+import com.example.myvideo.models.RegModel;
 import com.example.myvideo.models.UniversityModel;
 
 import java.util.List;
@@ -42,6 +43,16 @@ public class SharedModel {
     private static BookModel selected_book;
 
     private static ArticleModel selected_article;
+
+    private static RegModel selected_user;
+
+    public static RegModel getSelected_user() {
+        return selected_user;
+    }
+
+    public static void setSelected_user(RegModel selected_user) {
+        SharedModel.selected_user = selected_user;
+    }
 
     public static ArticleModel getSelected_article() {
         return selected_article;

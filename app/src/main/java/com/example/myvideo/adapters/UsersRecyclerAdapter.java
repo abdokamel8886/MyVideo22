@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.myvideo.R;
 import com.example.myvideo.models.CommentModel;
+import com.example.myvideo.models.PostModel;
 import com.example.myvideo.models.RegModel;
 
 import java.util.ArrayList;
@@ -25,6 +26,11 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
     public void setList(ArrayList<RegModel> list) {
         this.list = list;
 
+    }
+    private UsersRecyclerAdapter.OnItemClick onItemClick ;
+
+    public void setOnItemClick (UsersRecyclerAdapter.OnItemClick onItemClick){
+        this.onItemClick = onItemClick;
     }
 
 
@@ -69,9 +75,25 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
             writer = itemView.findViewById(R.id.name);
             img = itemView.findViewById(R.id.img);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(onItemClick != null){
+
+                        onItemClick.OnClick(list.get(getLayoutPosition()));
+                    }
+                }
+            });
+
 
 
         }
+    }
+
+    public interface OnItemClick{
+
+        void OnClick(RegModel user);
+
     }
 
 

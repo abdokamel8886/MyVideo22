@@ -5,38 +5,23 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.myvideo.R;
 import com.example.myvideo.adapters.ArticlesRecyclerAdapter;
-import com.example.myvideo.adapters.CatsRecyclerAdapter;
 import com.example.myvideo.adapters.PagerAdabter;
 import com.example.myvideo.adapters.PostsRecyclerAdapter;
 import com.example.myvideo.databinding.FragmentBlogBinding;
-import com.example.myvideo.models.ArticleModel;
 import com.example.myvideo.models.PagerModelClass;
-import com.example.myvideo.models.PostModel;
 import com.example.myvideo.ui.Explore.CommunityAtriclesFragment;
 import com.example.myvideo.ui.Explore.CommunityPostsFragment;
 import com.example.myvideo.ui.Explore.ExploreViewModel;
-import com.example.myvideo.ui.myHome.MyCourses.Courseviewer.CourseinfoFragment;
-import com.example.myvideo.ui.myHome.MyCourses.Courseviewer.PdfsFragment;
-import com.example.myvideo.ui.myHome.MyCourses.Courseviewer.VideosFragment;
-import com.example.myvideo.ui.post.AddPostFragment;
-import com.example.myvideo.ui.post.PostFragment;
-import com.example.myvideo.utils.SharedModel;
+import com.example.myvideo.ui.profile.Chat.BaseChatFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 
@@ -85,6 +70,14 @@ public class BlogFragment extends Fragment {
         adapter.setData(model);
         binding.Pager.setAdapter(adapter);
         binding.tablayout.setupWithViewPager(binding.Pager);
+
+        binding.chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new BaseChatFragment() ,"chat")
+                        .addToBackStack("chat").commit();
+            }
+        });
 
     }
 

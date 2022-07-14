@@ -22,6 +22,7 @@
         <entry key="app/src/main/res/layout/fragment_add_post.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_all_degrees.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_article.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_base_chat.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_blog.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_book.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_books_categ.xml" value="0.35625" />
@@ -39,6 +40,7 @@
         <entry key="app/src/main/res/layout/fragment_departments.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_faculty_info.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_friends_chat.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_info_viewer.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.35625" />
@@ -69,7 +71,9 @@
         <entry key="app/src/main/res/layout/item_book2.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_cat.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_chat_me.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/item_chat_me1.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_chat_other.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/item_chat_other2.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_comment.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_dgree.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_post.xml" value="0.35625" />
