@@ -27,9 +27,11 @@
         android:id="@+id/nav"
         android:layout_width="match_parent"
         android:layout_height="40sp"
-        android:outlineSpotShadowColor="@color/white"
-        android:outlineAmbientShadowColor="@color/white"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10sp"
+        app:itemIconSize="30sp"
+        android:outlineAmbientShadowColor="@color/white"
+        android:outlineSpotShadowColor="@color/white"
         app:menu="@menu/menu_nam" />
 
 

@@ -30,13 +30,13 @@
         />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/img"
         app:layout_constraintBottom_toBottomOf="@id/img"
         android:layout_marginEnd="40sp"
-        android:src="@drawable/road"
+        android:src="@drawable/tracking111"
         android:id="@+id/road"
         />
 

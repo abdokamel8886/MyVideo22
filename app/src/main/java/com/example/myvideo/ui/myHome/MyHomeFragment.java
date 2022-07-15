@@ -16,6 +16,7 @@ import com.example.myvideo.models.CourseModel;
 import com.example.myvideo.models.UniversityModel;
 import com.example.myvideo.ui.Explore.BooksCatsFragment;
 import com.example.myvideo.ui.Explore.CoursesCatsFragment;
+import com.example.myvideo.ui.RoadMap.RoadmapBaseFragment;
 import com.example.myvideo.ui.University.MyUniversity.MyUniversityFragment;
 import com.example.myvideo.ui.myHome.MyBooks.MyBooksBaseFragment;
 import com.example.myvideo.ui.myHome.MyCourses.MyCoursesBaseFragment;
@@ -85,6 +86,14 @@ public class MyHomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 getBooksCats();
+            }
+        });
+
+        binding.road.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new RoadmapBaseFragment(),"road")
+                        .addToBackStack("road").commit();
             }
         });
 

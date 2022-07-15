@@ -25,21 +25,29 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/next"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/priv"
         android:layout_margin="20sp"
-        android:background="@drawable/ic_baseline_skip_next_24"
+        android:text="Next"
+        android:textAllCaps="false"
+
         />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/priv"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/next"
         android:layout_margin="20sp"
-        android:background="@drawable/ic_baseline_skip_previous_24"
+        android:text="Previous"
+        android:textAllCaps="false"
         />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
