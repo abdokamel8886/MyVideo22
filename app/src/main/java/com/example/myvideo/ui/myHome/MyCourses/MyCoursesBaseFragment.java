@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myvideo.R;
 import com.example.myvideo.adapters.CoursesRecyclerAdapter;
+import com.example.myvideo.adapters.CoursesRecyclerAdapter2;
 import com.example.myvideo.databinding.FragmentMyCoursesBaseBinding;
 import com.example.myvideo.models.CourseModel;
 import com.example.myvideo.ui.myHome.MyCourses.Courseviewer.CourseBaseViewerFragment;
@@ -27,7 +28,7 @@ public class MyCoursesBaseFragment extends Fragment {
 
 
     FragmentMyCoursesBaseBinding binding;
-    CoursesRecyclerAdapter adapter = new CoursesRecyclerAdapter();
+    CoursesRecyclerAdapter2 adapter = new CoursesRecyclerAdapter2();
     MyCoursesViewModel viewModel;
     BottomNavigationView nav;
 
@@ -90,7 +91,7 @@ public class MyCoursesBaseFragment extends Fragment {
             }
         });
 
-        adapter.setOnItemClick(new CoursesRecyclerAdapter.OnItemClick() {
+        adapter.setOnItemClick(new CoursesRecyclerAdapter2.OnItemClick() {
             @Override
             public void OnClick(CourseModel course) {
                 SharedModel.setSelected_course(course);

@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.myvideo.R;
 import com.example.myvideo.adapters.CoursesRecyclerAdapter;
+import com.example.myvideo.adapters.CoursesRecyclerAdapter2;
 import com.example.myvideo.databinding.FragmentSuggestsCoursesBinding;
 import com.example.myvideo.models.CourseModel;
 import com.example.myvideo.ui.Explore.Course.CourseFragment;
@@ -29,7 +30,7 @@ public class SuggestsCoursesFragment extends Fragment {
 
     FragmentSuggestsCoursesBinding binding;
     MyCoursesViewModel viewModel;
-    CoursesRecyclerAdapter coursesadapter = new CoursesRecyclerAdapter();
+    CoursesRecyclerAdapter2 coursesadapter = new CoursesRecyclerAdapter2();
     BottomNavigationView nav;
 
     @Override
@@ -92,7 +93,7 @@ public class SuggestsCoursesFragment extends Fragment {
             }
         });
 
-        coursesadapter.setOnItemClick(new CoursesRecyclerAdapter.OnItemClick() {
+        coursesadapter.setOnItemClick(new CoursesRecyclerAdapter2.OnItemClick() {
             @Override
             public void OnClick(CourseModel course) {
                 SharedModel.setSelected_course(course);

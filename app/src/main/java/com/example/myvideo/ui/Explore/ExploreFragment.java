@@ -12,10 +12,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.myvideo.R;
 import com.example.myvideo.adapters.BooksRecyclerAdapter;
 import com.example.myvideo.adapters.CoursesRecyclerAdapter;
+import com.example.myvideo.adapters.CoursesRecyclerAdapter2;
 import com.example.myvideo.databinding.FragmentExploreBinding;
 import com.example.myvideo.models.BookModel;
 import com.example.myvideo.models.CourseModel;
@@ -34,7 +36,7 @@ public class ExploreFragment extends Fragment {
     BottomNavigationView nav;
     ExploreViewModel viewModel;
     BooksRecyclerAdapter booksadapter = new BooksRecyclerAdapter();
-    CoursesRecyclerAdapter coursesadapter = new CoursesRecyclerAdapter();
+    CoursesRecyclerAdapter2 coursesadapter = new CoursesRecyclerAdapter2();
 
     MyCoursesViewModel myCoursesViewModel;
 
@@ -122,6 +124,12 @@ public class ExploreFragment extends Fragment {
         });
     }
     private void getCourses(){
+
+        GridLayoutManager layoutManager = (GridLayoutManager) binding.recycler.getLayoutManager();
+        layoutManager.setSpanCount(1);
+        binding.recycler.setLayoutManager(layoutManager);
+
+
         viewModel.getCourses();
 
         viewModel.Courses.observe(getViewLifecycleOwner(), new Observer<ArrayList<CourseModel>>() {
@@ -153,7 +161,7 @@ public class ExploreFragment extends Fragment {
             }
         });
 
-        coursesadapter.setOnItemClick(new CoursesRecyclerAdapter.OnItemClick() {
+        coursesadapter.setOnItemClick(new CoursesRecyclerAdapter2.OnItemClick() {
             @Override
             public void OnClick(CourseModel course) {
                 SharedModel.setSelected_course(course);

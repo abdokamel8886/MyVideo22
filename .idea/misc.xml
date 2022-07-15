@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/chat1.xml" value="0.206" />
         <entry key="app/src/main/res/drawable/chat1_bub.xml" value="0.279" />
+        <entry key="app/src/main/res/drawable/chat2.xml" value="0.206" />
         <entry key="app/src/main/res/drawable/edittext2.xml" value="0.2805" />
         <entry key="app/src/main/res/drawable/edittext3.xml" value="0.2715" />
         <entry key="app/src/main/res/drawable/edittext4.xml" value="0.2715" />
@@ -72,6 +74,7 @@
         <entry key="app/src/main/res/layout/item_article.xml" value="0.5618320610687023" />
         <entry key="app/src/main/res/layout/item_book.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_book2.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/item_book3.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_cat.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_chat_me.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_chat_me1.xml" value="0.35625" />

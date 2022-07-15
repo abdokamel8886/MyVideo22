@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="@drawable/chat1_bub"
+            android:background="@drawable/chat1"
             app:layout_constraintTop_toBottomOf="@+id/text_user_name"
             android:backgroundTint="@color/purple"
             android:orientation="vertical">
