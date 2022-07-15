@@ -18,6 +18,8 @@ import com.example.myvideo.models.CourseModel;
 import com.example.myvideo.ui.myHome.MyCourses.Courseviewer.CourseBaseViewerFragment;
 import com.example.myvideo.ui.myHome.MyCourses.MyHomeCoursesFragment;
 import com.example.myvideo.utils.SharedModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 
 public class RoadmapBaseFragment extends Fragment {
@@ -25,6 +27,7 @@ public class RoadmapBaseFragment extends Fragment {
 
     FragmentRoadmapBaseBinding binding;
     RoadMapViewModel viewModel;
+    BottomNavigationView nav ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,6 +41,8 @@ public class RoadmapBaseFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentRoadmapBaseBinding.bind(view);
         viewModel = new ViewModelProvider(this).get(RoadMapViewModel.class);
+        nav  = requireActivity().findViewById(R.id.nav);
+        nav.setVisibility(View.GONE);
 
         onClicks();
 
@@ -58,6 +63,8 @@ public class RoadmapBaseFragment extends Fragment {
             }
         });
 
+
+        //basic
         binding.basic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,6 +78,7 @@ public class RoadmapBaseFragment extends Fragment {
 
             }
         });
+
 
         binding.cs50.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +109,122 @@ public class RoadmapBaseFragment extends Fragment {
                 });
             }
         });
+
+        // core
+
+        binding.core.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.core1.getVisibility() == View.VISIBLE){
+                    binding.core1.setVisibility(View.GONE);
+                }
+                else {
+                    binding.core1.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        binding.coreProg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.coreProgLayout.getVisibility() == View.VISIBLE){
+                    binding.coreProgLayout.setVisibility(View.GONE);
+                }
+                else {
+                    binding.coreProgLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        binding.coreMath.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.coreMathLayout.getVisibility() == View.VISIBLE){
+                    binding.coreMathLayout.setVisibility(View.GONE);
+                }
+                else {
+                    binding.coreMathLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+        binding.coreTools.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.coreToolsLayout.getVisibility() == View.VISIBLE){
+                    binding.coreToolsLayout.setVisibility(View.GONE);
+                }
+                else {
+                    binding.coreToolsLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        binding.coreSys.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.coreSysLayout.getVisibility() == View.VISIBLE){
+                    binding.coreSysLayout.setVisibility(View.GONE);
+                }
+                else {
+                    binding.coreSysLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        binding.coreTheory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.coreTheoryLayout.getVisibility() == View.VISIBLE){
+                    binding.coreTheoryLayout.setVisibility(View.GONE);
+                }
+                else {
+                    binding.coreTheoryLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        binding.coreSec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.coreSecLayout.getVisibility() == View.VISIBLE){
+                    binding.coreSecLayout.setVisibility(View.GONE);
+                }
+                else {
+                    binding.coreSecLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+        binding.coreApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.coreAppLayout.getVisibility() == View.VISIBLE){
+                    binding.coreAppLayout.setVisibility(View.GONE);
+                }
+                else {
+                    binding.coreAppLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        binding.coreEth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.coreEthLayout.getVisibility() == View.VISIBLE){
+                    binding.coreEthLayout.setVisibility(View.GONE);
+                }
+                else {
+                    binding.coreEthLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+
+
 
 
     }
