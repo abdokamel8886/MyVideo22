@@ -17,6 +17,7 @@ import com.example.myvideo.adapters.AdapterRecyclerChat;
 import com.example.myvideo.databinding.FragmentChatBinding;
 import com.example.myvideo.models.ModelChat;
 import com.example.myvideo.utils.SharedModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.core.utilities.Validation;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class ChatFragment extends Fragment {
 
     FragmentChatBinding binding;
     ChatViewModel viewModel;
+    BottomNavigationView nav;
     AdapterRecyclerChat adapter = new AdapterRecyclerChat();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,6 +40,8 @@ public class ChatFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentChatBinding.bind(view);
         viewModel = new ViewModelProvider(this).get(ChatViewModel.class);
+        nav = requireActivity().findViewById(R.id.nav);
+        nav.setVisibility(View.GONE);
         getData();
 
     }
@@ -49,7 +53,7 @@ public class ChatFragment extends Fragment {
     }
 
     private void getData(){
-        binding.txt.setText("Year "+SharedModel.getMyUniversity().getGrade());
+        binding.txt.setText("Group Chat");
         viewModel.getMassages();
         viewModel.list.observe(getViewLifecycleOwner(), new Observer<ArrayList<ModelChat>>() {
             @Override

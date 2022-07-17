@@ -66,7 +66,7 @@ public class BooksCatsFragment extends Fragment {
                 binding.recycler.setAdapter(adapter);
 
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.books_cat_frame , new MyHomeBooksFragment(),"mhbb")
-                        .addToBackStack("mhbb").commit();
+                        .commit();
 
                 adapter.setOnItemClick(new CatsRecyclerAdapter.OnItemClick() {
                     @Override

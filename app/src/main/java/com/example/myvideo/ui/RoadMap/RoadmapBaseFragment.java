@@ -43,6 +43,7 @@ public class RoadmapBaseFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(RoadMapViewModel.class);
         nav  = requireActivity().findViewById(R.id.nav);
         nav.setVisibility(View.GONE);
+        SharedModel.setSelected_course(null);
 
         onClicks();
 
@@ -87,9 +88,10 @@ public class RoadmapBaseFragment extends Fragment {
                 viewModel.Course.observe(getViewLifecycleOwner(), new Observer<CourseModel>() {
                     @Override
                     public void onChanged(CourseModel courseModel) {
+                        SharedModel.setSelected_course(courseModel);
                         requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new CourseBaseViewerFragment(),"cs50")
                                 .addToBackStack("cs50").commit();
-                        SharedModel.setSelected_course(courseModel);
+
                     }
                 });
             }
@@ -102,9 +104,10 @@ public class RoadmapBaseFragment extends Fragment {
                 viewModel.Course.observe(getViewLifecycleOwner(), new Observer<CourseModel>() {
                     @Override
                     public void onChanged(CourseModel courseModel) {
-                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new CourseBaseViewerFragment(),"cs50")
-                                .addToBackStack("cs50").commit();
                         SharedModel.setSelected_course(courseModel);
+                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new CourseBaseViewerFragment(),"ppy")
+                                .addToBackStack("ppy").commit();
+
                     }
                 });
             }

@@ -28,9 +28,8 @@ public class RoadMapViewModel extends ViewModel {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                if (snapshot.getValue(CourseModel.class) != null){
-                    Course.setValue(snapshot.getValue(CourseModel.class));
-                }
+                SharedModel.setSelected_course(snapshot.getValue(CourseModel.class));
+
 
 
             }

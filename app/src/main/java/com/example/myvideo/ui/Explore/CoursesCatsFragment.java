@@ -68,7 +68,7 @@ public class CoursesCatsFragment extends Fragment {
                 binding.recycler.setAdapter(adapter);
 
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.courses_cat_frame , new MyHomeCoursesFragment(),"mhbc")
-                        .addToBackStack("mhbc").commit();
+                        .commit();
 
                 adapter.setOnItemClick(new CatsRecyclerAdapter.OnItemClick() {
                     @Override

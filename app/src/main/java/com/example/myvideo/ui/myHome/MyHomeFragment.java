@@ -61,9 +61,8 @@ public class MyHomeFragment extends Fragment {
         else{
             getCoursesCats();
         }
-
-
         onClicks();
+
 
     }
 
@@ -110,7 +109,7 @@ public class MyHomeFragment extends Fragment {
         binding.Courses.setTextColor(getResources().getColor(R.color.white));
 
         requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.myhome_frame , new CoursesCatsFragment() ,"ccat")
-                .addToBackStack("ccat").commit();
+                .commit();
     }
 
     private void getBooksCats(){
@@ -122,7 +121,7 @@ public class MyHomeFragment extends Fragment {
         binding.Courses.setTextColor(getResources().getColor(R.color.black));
 
         requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.myhome_frame , new BooksCatsFragment() ,"bcat")
-                .addToBackStack("bcat").commit();
+                .commit();
 
 
     }
