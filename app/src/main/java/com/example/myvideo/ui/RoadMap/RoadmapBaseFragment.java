@@ -225,6 +225,55 @@ public class RoadmapBaseFragment extends Fragment {
             }
         });
 
+        //adv
+
+        binding.advanced.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.advanced1.getVisibility() == View.VISIBLE){
+                    binding.advanced1.setVisibility(View.GONE);
+                }
+                else {
+                    binding.advanced1.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+        binding.advSys.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.advSysLayout.getVisibility() == View.VISIBLE){
+                    binding.advSysLayout.setVisibility(View.GONE);
+                }
+                else {
+                    binding.advSysLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        binding.advMath.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.advMathLayout.getVisibility() == View.VISIBLE){
+                    binding.advMathLayout.setVisibility(View.GONE);
+                }
+                else {
+                    binding.advMathLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        binding.advProg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.advProgLayout.getVisibility() == View.VISIBLE){
+                    binding.advProgLayout.setVisibility(View.GONE);
+                }
+                else {
+                    binding.advProgLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
 
 
 
