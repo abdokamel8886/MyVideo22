@@ -1,10 +1,13 @@
 package com.example.myvideo.ui.auth.reg;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
@@ -84,7 +88,7 @@ public class RegFragment extends Fragment {
         binding.imageEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openfile();
+                ReqPerm();
             }
         });
 
@@ -184,4 +188,27 @@ public class RegFragment extends Fragment {
 
     }
 
+
+    public void ReqPerm(){
+
+        if (ActivityCompat.checkSelfPermission(requireActivity() , Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
+            openfile();
+        }
+
+        else {
+            ActivityCompat.requestPermissions(requireActivity() , new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE} , 120);
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode==120 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 }

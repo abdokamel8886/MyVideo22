@@ -49,7 +49,6 @@
             android:id="@+id/img"
             android:layout_width="110dp"
             android:layout_height="110dp"
-
             android:layout_centerInParent="true"
             app:civ_border_color="#E9F0FE"
             app:civ_border_width="5dp" />
