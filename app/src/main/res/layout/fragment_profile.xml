@@ -121,6 +121,7 @@
                 app:layout_constraintStart_toStartOf="@id/date"
                 app:layout_constraintTop_toBottomOf="@id/date"
                 android:src="@drawable/git"
+                android:visibility="gone"
                 android:layout_marginTop="20sp"
                 android:id="@+id/git"
                 />
@@ -135,6 +136,7 @@
         android:textColor="#646464"
         android:textStyle="bold"
         android:text="username"
+        android:visibility="gone"
         android:textSize="12sp"
 
         />
