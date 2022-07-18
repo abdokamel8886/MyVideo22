@@ -23,6 +23,7 @@ import com.example.myvideo.ui.University.MyUniversity.MyUniversityFragment;
 import com.example.myvideo.ui.chat.ChatFragment;
 import com.example.myvideo.ui.myHome.MyBooks.MyBooksBaseFragment;
 import com.example.myvideo.ui.myHome.MyCourses.Courseviewer.CourseBaseViewerFragment;
+import com.example.myvideo.ui.profile.Account.FacultyInfo.FacultyInfoFragment;
 import com.example.myvideo.utils.SharedModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -69,6 +70,14 @@ public class UniversityBaseFragment extends Fragment {
             public void onClick(View view) {
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new ChatFragment(),"chat")
                         .addToBackStack("chat").commit();
+            }
+        });
+
+        binding.info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new FacultyInfoFragment(),"info")
+                        .addToBackStack("info").commit();
             }
         });
 

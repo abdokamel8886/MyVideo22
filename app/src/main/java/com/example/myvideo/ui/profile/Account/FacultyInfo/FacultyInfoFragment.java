@@ -23,7 +23,6 @@ public class FacultyInfoFragment extends Fragment {
 
 
     FragmentFacultyInfoBinding binding;
-    FacultyInfoViewModel viewModel;
     BottomNavigationView nav;
 
     @Override
@@ -39,10 +38,14 @@ public class FacultyInfoFragment extends Fragment {
         binding = FragmentFacultyInfoBinding.bind(view);
         nav = requireActivity().findViewById(R.id.nav);
         nav.setVisibility(View.GONE);
-        binding.bar.setVisibility(View.VISIBLE);
-        viewModel = new ViewModelProvider(this).get(FacultyInfoViewModel.class);
 
-        getData();
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requireActivity().onBackPressed();
+            }
+        });
+
     }
 
     @Override
@@ -51,25 +54,4 @@ public class FacultyInfoFragment extends Fragment {
         binding = null;
     }
 
-    private void getData(){
-        viewModel.getData();
-        viewModel.model.observe(getViewLifecycleOwner(), new Observer<UniversityModel>() {
-            @Override
-            public void onChanged(UniversityModel universityModel) {
-
-                binding.txt.setVisibility(View.VISIBLE);
-                binding.txt1.setVisibility(View.VISIBLE);
-                binding.txt2.setVisibility(View.VISIBLE);
-
-                binding.toolbar.setTitle(universityModel.getName());
-                binding.address.setText(universityModel.getAddress());
-                binding.about.setText(universityModel.getIntro());
-                binding.departments.setText(universityModel.getDepartments());
-                Glide.with(getContext())
-                        .load(universityModel.getImage())
-                        .into(binding.img);
-                binding.bar.setVisibility(View.GONE);
-            }
-        });
-    }
 }
