@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.myvideo.R;
 import com.example.myvideo.adapters.DegreesRecyclerAdapter;
 import com.example.myvideo.databinding.FragmentAllDegreesBinding;
+import com.example.myvideo.models.MyUniversityModel;
 import com.example.myvideo.models.UniversityModel;
 import com.example.myvideo.ui.University.Department.DepartmentsFragment;
 import com.example.myvideo.ui.myHome.MyCourses.Courseviewer.CourseBaseViewerFragment;
@@ -28,7 +29,6 @@ public class AllDegreesFragment extends Fragment {
     FragmentAllDegreesBinding binding;
     AllDegreesViewModel viewModel;
     DegreesRecyclerAdapter adapter = new DegreesRecyclerAdapter();
-    BottomNavigationView nav;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -39,15 +39,8 @@ public class AllDegreesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentAllDegreesBinding.bind(view);
-        nav = requireActivity().findViewById(R.id.nav);
-        nav.setVisibility(View.GONE);
 
-        binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                requireActivity().onBackPressed();
-            }
-        });
+
 
         viewModel = new ViewModelProvider(this).get(AllDegreesViewModel.class);
         getData();
@@ -71,10 +64,13 @@ public class AllDegreesFragment extends Fragment {
 
                 adapter.setOnItemClick(new DegreesRecyclerAdapter.OnItemClick() {
                     @Override
-                    public void OnClick(UniversityModel.Grades grade) {
+                    public void OnClick(UniversityModel.Grades grade, Integer integer) {
                         SharedModel.setSelected_Grade(grade);
+                        MyUniversityModel model = new MyUniversityModel();
+                        model.setGrade(integer);
+                        SharedModel.setMyUniversity(model);
                         requireActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.home_frame , new DepartmentsFragment(),"bc").addToBackStack("bc").commit();
+                                .replace(R.id.select_frame , new DepartmentsFragment(),"bc").commit();
                     }
                 });
 

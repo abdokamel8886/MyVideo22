@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.myvideo.R;
 import com.example.myvideo.databinding.FragmentRegBinding;
 import com.example.myvideo.models.MyUniversityModel;
+import com.example.myvideo.ui.auth.reg.collage.SelectCollageFragment;
 import com.example.myvideo.ui.baseHome.HomeFragment;
 import com.example.myvideo.utils.SharedModel;
 import com.google.firebase.database.DatabaseReference;
@@ -74,7 +75,7 @@ public class RegFragment extends Fragment {
         binding.drregBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Validation();
+               Validation();
 
 
             }
@@ -142,30 +143,20 @@ public class RegFragment extends Fragment {
 
         else{
             binding.bar.setVisibility(View.VISIBLE);
-            sign(username,email,phone , password , birth);
+            SharedModel.setUsername(username);
+            SharedModel.setBirth(birth);
+            SharedModel.setMail(email);
+            SharedModel.setPhone(phone);
+            SharedModel.setPassword(password);
+            SharedModel.setUri(uri);
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frame,new SelectCollageFragment()).commit();
+            //sign(username,email,phone , password , birth);
 
 
         }
     }
-    private void sign( String username , String email ,String phone, String password , String birth){
-        regViewModel.Sign(uri,username,email,phone , password , birth);
 
-        regViewModel.loged.observe(getViewLifecycleOwner(), new Observer<Integer>() {
-            @Override
-            public void onChanged(Integer integer) {
-                ref.child("MyUniversity").child(SharedModel.getId()).setValue(new MyUniversityModel(3,2,1));
-                flag =1;
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
-                    fm.popBackStack();
-                }
-                binding.bar.setVisibility(View.GONE);
-                requireActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame,new HomeFragment()).commit();
-
-            }
-        });
-    }
 
     @Override
     public void onStop() {

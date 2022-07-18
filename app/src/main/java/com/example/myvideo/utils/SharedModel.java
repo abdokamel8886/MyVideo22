@@ -39,6 +39,33 @@ public class SharedModel {
     private static String phone;
     private static String birth;
     private static String image;
+    private static String password;
+    private static String track;
+    private static Uri uri;
+
+    public static String getTrack() {
+        return track;
+    }
+
+    public static void setTrack(String track) {
+        SharedModel.track = track;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
+
+    public static void setPassword(String password) {
+        SharedModel.password = password;
+    }
+
+    public static Uri getUri() {
+        return uri;
+    }
+
+    public static void setUri(Uri uri) {
+        SharedModel.uri = uri;
+    }
 
     private static BookModel selected_book;
 

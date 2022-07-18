@@ -74,7 +74,7 @@ public class DegreesRecyclerAdapter extends RecyclerView.Adapter<DegreesRecycler
 
                         SharedModel.setIndex(getLayoutPosition());
 
-                        onItemClick.OnClick(list.get(getLayoutPosition()));
+                        onItemClick.OnClick(list.get(getLayoutPosition()) , getLayoutPosition());
                     }
                 }
             });
@@ -84,7 +84,7 @@ public class DegreesRecyclerAdapter extends RecyclerView.Adapter<DegreesRecycler
 
     public interface OnItemClick{
 
-        void OnClick(UniversityModel.Grades grade);
+        void OnClick(UniversityModel.Grades grade , Integer integer);
 
     }
 }

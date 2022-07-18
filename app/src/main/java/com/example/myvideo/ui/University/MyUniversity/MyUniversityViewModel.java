@@ -44,14 +44,12 @@ public class MyUniversityViewModel extends ViewModel {
     public void getCourses(){
         String grade = Integer.toString(SharedModel.getMyUniversity().getGrade());
         String dep = Integer.toString(SharedModel.getMyUniversity().getDepartment());
-        String term = Integer.toString(SharedModel.getMyUniversity().getTerm());
-
         courseModels.clear();
         ref.child("Universities").child("Faculty of Computer And Informatics Zagazig University").child("Grades")
                 .child(grade)
                 .child("departments")
                 .child(dep)
-                .child("terms").child(term)
+                .child("terms").child("0")
                 .child("Courses").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

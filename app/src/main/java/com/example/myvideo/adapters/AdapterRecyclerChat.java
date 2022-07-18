@@ -61,11 +61,11 @@ public class AdapterRecyclerChat extends RecyclerView.Adapter{
 
         if (viewType == VIEW_TYPE_MESSAGE_SENT) {
             view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_chat_me, parent, false);
+                    .inflate(R.layout.item_chat_me2, parent, false);
             return new SentMessageHolder(view);
         } else {
             view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_chat_other, parent, false);
+                    .inflate(R.layout.item_chat_other2, parent, false);
             return new ReceivedMessageHolder(view);
         }
 

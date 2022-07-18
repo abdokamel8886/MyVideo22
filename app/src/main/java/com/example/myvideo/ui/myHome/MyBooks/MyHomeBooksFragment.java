@@ -83,8 +83,12 @@ public class MyHomeBooksFragment extends Fragment {
 
                 adapter.setList(list1);
                 binding.recycler1.setAdapter(adapter);
-                binding.txt1.setVisibility(View.VISIBLE);
-                binding.txt3.setVisibility(View.VISIBLE);
+
+                if (list1.size()>0){
+                    binding.txt1.setVisibility(View.VISIBLE);
+                    binding.txt3.setVisibility(View.VISIBLE);
+                }
+
                 getBooks2();
             }
         });
@@ -111,8 +115,13 @@ public class MyHomeBooksFragment extends Fragment {
 
                 adapter2.setList(list1);
                 binding.recycler2.setAdapter(adapter2);
-                binding.txt2.setVisibility(View.VISIBLE);
-                binding.txt4.setVisibility(View.VISIBLE);
+
+                if (list1.size()>0){
+                    binding.txt2.setVisibility(View.VISIBLE);
+                    binding.txt4.setVisibility(View.VISIBLE);
+                }
+
+
                 onClicks();
             }
         });

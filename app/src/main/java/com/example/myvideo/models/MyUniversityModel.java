@@ -12,10 +12,9 @@ public class MyUniversityModel {
     public MyUniversityModel(Integer Grade, Integer department, Integer term) {
         this.Grade = Grade;
         this.department = department;
-        this.term = term;
     }
 
-    private Integer term;
+
 
 
 
@@ -35,11 +34,4 @@ public class MyUniversityModel {
         this.department = department;
     }
 
-    public Integer getTerm() {
-        return term;
-    }
-
-    public void setTerm(Integer term) {
-        this.term = term;
-    }
 }

@@ -15,12 +15,12 @@ import com.example.myvideo.utils.SharedModel;
 
 import java.util.ArrayList;
 
-public class DepartmentsRecyclerAdapter extends RecyclerView.Adapter<DepartmentsRecyclerAdapter.Holder>{
+public class TracksRecyclerAdapter extends RecyclerView.Adapter<TracksRecyclerAdapter.Holder>{
 
 
-    ArrayList<UniversityModel.Grades.Departments> list = new ArrayList<>();
+    ArrayList<String> list = new ArrayList<>();
 
-    public void setList(ArrayList<UniversityModel.Grades.Departments> list) {
+    public void setList(ArrayList<String> list) {
         this.list = list;
     }
 
@@ -42,7 +42,7 @@ public class DepartmentsRecyclerAdapter extends RecyclerView.Adapter<Departments
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
 
-        holder.title.setText(list.get(position).getName());
+        holder.title.setText(list.get(position));
 
 
     }
@@ -71,7 +71,7 @@ public class DepartmentsRecyclerAdapter extends RecyclerView.Adapter<Departments
 
                         SharedModel.setIndex(getLayoutPosition());
 
-                        onItemClick.OnClick(list.get(getLayoutPosition()) , getLayoutPosition());
+                        onItemClick.OnClick(list.get(getLayoutPosition()));
                     }
                 }
             });
@@ -81,7 +81,7 @@ public class DepartmentsRecyclerAdapter extends RecyclerView.Adapter<Departments
 
     public interface OnItemClick{
 
-        void OnClick(UniversityModel.Grades.Departments department  , Integer integer);
+        void OnClick(String track);
 
     }
 }

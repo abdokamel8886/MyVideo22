@@ -103,10 +103,10 @@ public class ProfileFragment extends Fragment {
                 FirebaseAuth.getInstance().signOut();
                 SharedModel.delete(caches.get(0));
                 SharedModel.cache = false;
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
-                    fm.popBackStack();
-                }
+                //FragmentManager fm = getActivity().getSupportFragmentManager();
+                //for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+                   // fm.popBackStack();
+                //}
                 Toast.makeText(getContext(), "Logged Out Successfully", Toast.LENGTH_SHORT).show();
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame , new LoginFragment()).commit();
             }

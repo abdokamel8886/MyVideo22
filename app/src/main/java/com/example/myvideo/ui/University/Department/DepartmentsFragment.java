@@ -9,13 +9,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.myvideo.R;
 import com.example.myvideo.adapters.DegreesRecyclerAdapter;
 import com.example.myvideo.adapters.DepartmentsRecyclerAdapter;
 import com.example.myvideo.databinding.FragmentDepartmentsBinding;
+import com.example.myvideo.models.MyUniversityModel;
 import com.example.myvideo.models.UniversityModel;
 import com.example.myvideo.ui.University.TermsFragment;
+import com.example.myvideo.ui.auth.reg.collage.SelectCollageFragment;
+import com.example.myvideo.ui.auth.reg.track.SelectTrackFragment;
 import com.example.myvideo.utils.SharedModel;
 
 import java.util.ArrayList;
@@ -37,14 +41,6 @@ public class DepartmentsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentDepartmentsBinding.bind(view);
-
-        binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                requireActivity().onBackPressed();
-            }
-        });
-
         show();
     }
 
@@ -58,12 +54,20 @@ public class DepartmentsFragment extends Fragment {
         adapter.setList((ArrayList<UniversityModel.Grades.Departments>) SharedModel.getSelected_Grade().getDepartments());
         binding.recycler.setAdapter(adapter);
 
+
+
         adapter.setOnItemClick(new DepartmentsRecyclerAdapter.OnItemClick() {
             @Override
-            public void OnClick(UniversityModel.Grades.Departments department) {
+            public void OnClick(UniversityModel.Grades.Departments department, Integer integer) {
+                MyUniversityModel model = SharedModel.getMyUniversity();
+                model.setDepartment(integer);
+                SharedModel.setMyUniversity(model);
                 SharedModel.setSelected_department(department);
+
                 requireActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.home_frame , new TermsFragment(),"bc").addToBackStack("bc").commit();
+                        .replace(R.id.frame,new SelectTrackFragment()).commit();
+
+               // Toast.makeText(getContext(), "Year:"+(SharedModel.getMyUniversity().getGrade()+1) + "Depart:"+(SharedModel.getMyUniversity().getDepartment()+1), Toast.LENGTH_SHORT).show();
             }
         });
 
