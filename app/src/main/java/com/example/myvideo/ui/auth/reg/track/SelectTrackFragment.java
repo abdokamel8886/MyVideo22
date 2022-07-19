@@ -80,7 +80,7 @@ public class SelectTrackFragment extends Fragment {
     }
 
     private void sign(){
-        regViewModel.Sign(SharedModel.getUri(),SharedModel.getUsername(),SharedModel.getMail(),SharedModel.getPhone() , SharedModel.getPassword() , SharedModel.getPassword());
+        regViewModel.Sign(SharedModel.getUri(),SharedModel.getUsername(),SharedModel.getMail(),SharedModel.getPhone() , SharedModel.getPassword() , SharedModel.getBirth());
 
         regViewModel.loged.observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override

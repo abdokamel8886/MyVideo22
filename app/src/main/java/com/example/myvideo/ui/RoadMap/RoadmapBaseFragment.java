@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,11 @@ import com.example.myvideo.ui.myHome.MyCourses.MyHomeCoursesFragment;
 import com.example.myvideo.utils.SharedModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class RoadmapBaseFragment extends Fragment {
@@ -28,6 +34,7 @@ public class RoadmapBaseFragment extends Fragment {
     FragmentRoadmapBaseBinding binding;
     RoadMapViewModel viewModel;
     BottomNavigationView nav ;
+    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -84,32 +91,19 @@ public class RoadmapBaseFragment extends Fragment {
         binding.cs50.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewModel.getCourse("Programming","CS50 - ar - abdelrahman gamal");
-                viewModel.Course.observe(getViewLifecycleOwner(), new Observer<CourseModel>() {
-                    @Override
-                    public void onChanged(CourseModel courseModel) {
-                        SharedModel.setSelected_course(courseModel);
-                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new CourseBaseViewerFragment(),"cs50")
-                                .addToBackStack("cs50").commit();
+                getCourse("Programming","CS50 - ar - abdelrahman gamal");
 
-                    }
-                });
+
+
             }
         });
 
         binding.python.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewModel.getCourse("Programming","Python Beginners Tutorial");
-                viewModel.Course.observe(getViewLifecycleOwner(), new Observer<CourseModel>() {
-                    @Override
-                    public void onChanged(CourseModel courseModel) {
-                        SharedModel.setSelected_course(courseModel);
-                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new CourseBaseViewerFragment(),"ppy")
-                                .addToBackStack("ppy").commit();
+                getCourse("Programming","Python Beginners Tutorial");
 
-                    }
-                });
+
             }
         });
 
@@ -278,6 +272,27 @@ public class RoadmapBaseFragment extends Fragment {
 
 
 
+
+    }
+
+    public void getCourse(String cat , String name){
+        ref.child("Courses").child(cat).child(name).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                SharedModel.setSelected_course(snapshot.getValue(CourseModel.class));
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new CourseBaseViewerFragment(),"course")
+                        .addToBackStack("course").commit();
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 

@@ -20,15 +20,16 @@ public class RoadMapViewModel extends ViewModel {
 
 
     DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-    public MutableLiveData<CourseModel> Course = new MutableLiveData<>();
+    public MutableLiveData<String> Course = new MutableLiveData<>();
 
 
     public void getCourse(String cat , String name){
         ref.child("Courses").child(cat).child(name).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 SharedModel.setSelected_course(snapshot.getValue(CourseModel.class));
+                Course.setValue("d");
+
 
 
 

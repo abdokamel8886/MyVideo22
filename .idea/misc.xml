@@ -63,6 +63,7 @@
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_reg.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_roadmap_base.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_security.xml" value="0.2966485507246377" />
         <entry key="app/src/main/res/layout/fragment_select_collage.xml" value="0.26721014492753625" />
         <entry key="app/src/main/res/layout/fragment_select_grade.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_select_track.xml" value="0.26721014492753625" />
